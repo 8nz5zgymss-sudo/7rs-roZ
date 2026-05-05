@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aKa 7rs h2Kr</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: #00ff99;
+    font-family: monospace;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* خلفية متحركة */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,255,150,0.1), black);
+    animation: moveBg 10s linear infinite;
+    z-index: -2;
+}
+
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-50px,-50px); }
+}
+
+/* صورة مرعبة */
+.ghost {
+    margin-top: 80px;
+}
+
+.ghost img {
+    width: 220px;
+    filter: grayscale(100%) contrast(150%);
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 0 40px red;
+}
+
+/* حركة طفو */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* عنوان */
+h1 {
+    font-size: 35px;
+    color: #00ff99;
+    text-shadow: 0 0 20px #00ff99;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00ff99; }
+    to { text-shadow: 0 0 40px #00ff99; }
+}
+
+/* الحقول */
+input {
+    width: 80%;
+    padding: 15px;
+    margin: 10px;
+    background: black;
+    border: 2px solid #00ff99;
+    color: #00ff99;
+}
+
+/* زر */
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    background: #00ff99;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00cc77;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ghost">
+    <img src="ghost.png">
+</div>
+
+<h1>💝 7rs aND rZo</h1>
+
+<input type="text" placeholder="النص"><br>
+<input type="password" placeholder="كلمة السر"><br>
+
+<button onclick="playSound()">تشغيل الصوت</button>
+
+<audio id="sound">
+    <source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playSound() {
+    document.getElementById("sound").play();
+}
+</script>
+
+</body>
+</html>
